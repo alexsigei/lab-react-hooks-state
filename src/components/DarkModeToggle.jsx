@@ -7,7 +7,7 @@ const DarkModeToggle = ({ darkMode, setDarkMode }) => {
     <button
         onClick={() => setDarkMode(!darkMode)}
     >
-      {darkMode ? "Toggle Ligth Mode" : "Toggle Dark Mode"}
+      {darkMode ? "Toggle Light Mode" : "Toggle Dark Mode"}
     </button>
   )
 }
