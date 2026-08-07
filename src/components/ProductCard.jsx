@@ -15,7 +15,7 @@ const ProductCard = ({ product, addToCart, darkmode }) => {
       <p>Status: {product.inStock ? 'In Stock' : 'Out of Stock'}</p>
 
       {/* TODO: Implement Add to Cart button functionality */}
-      <button data-testid={'product-' + product.id} onClick={() => addToCart(product)}>Add to Cart</button>
+      <button data-testid={'product-' + product.id} onClick={() => addToCart(product)} disabled={!product.inStock}>{product.inStock ? 'Add to Cart' : 'Out of Stock'}</button>
     </div>
   )
 }
