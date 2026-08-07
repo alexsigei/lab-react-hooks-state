@@ -1,10 +1,14 @@
 import React from 'react'
 import styles from '../styles/ProductCard.module.css'
 
-const ProductCard = ({ product, addToCart }) => {
+const ProductCard = ({ product, addToCart, darkmode }) => {
   return (
     <div
       className={`${styles.card} ${!product.inStock ? styles.outOfStock : ''}`}
+      style={{
+        backgroundColor: darkmode ? '#333' : '#fff',
+        color: darkmode ? '#fff' : '#000'
+      }}
     >
       <h3>{product.name}</h3>
       <p>Price: {product.price}</p>

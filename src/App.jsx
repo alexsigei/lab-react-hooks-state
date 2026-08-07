@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ProductList from './components/ProductList'
 import DarkModeToggle from './components/DarkModeToggle'
 import Cart from './components/Cart'
+import darkStyles from './styles/DarkMode.module.css'
 
 const App = () => {
   const [darkmode, setDarkmode] = useState(false)
@@ -15,7 +16,13 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div
+      className={
+      darkmode
+        ? darkStyles.dark
+        : darkStyles.light
+    }
+    >
       <h1>🛒 Shopping App</h1>
       <p>
         Welcome! Your task is to implement filtering, cart management, and dark
@@ -41,6 +48,7 @@ const App = () => {
       <ProductList 
         category={category}
         addToCart={handleAddToCart}
+        darkMode={darkmode}
       />
 
       <Cart cart={cart}/>

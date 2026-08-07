@@ -7,7 +7,7 @@ export const sampleProducts = [
   { id: 2, name: 'Milk', price: '$2.50', category: 'Dairy', inStock: false }
 ]
 
-const ProductList = ({ addToCart, category }) => {
+const ProductList = ({ addToCart, category, darkmode }) => {
 
   const filteredProducts = 
     category === 'all'
@@ -27,6 +27,7 @@ const ProductList = ({ addToCart, category }) => {
           key={product.id} 
           product={product}
           addToCart={addToCart} 
+          darkmode={darkmode}
         />
       )))}
     </div>
