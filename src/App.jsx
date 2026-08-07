@@ -4,12 +4,11 @@ import DarkModeToggle from './components/DarkModeToggle'
 import Cart from './components/Cart'
 
 const App = () => {
-  // TODO: Implement state for dark mode toggle
   const [darkmode, setDarkmode] = useState(false)
 
   const [cart, setCart] = useState([])
 
-  // TODO: Implement state for category filtering
+  const [category, setCategory] = useState("all")
 
   function handleAddToCart(product) {
     setCart((prevCart) => [...prevCart, product])
@@ -30,13 +29,19 @@ const App = () => {
 
       {/* TODO: Implement category filter dropdown */}
       <label>Filter by Category: </label>
-      <select>
+      <select
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+      >
         <option value="all">All</option>
         <option value="Fruits">Fruits</option>
         <option value="Dairy">Dairy</option>
       </select>
 
-      <ProductList addToCart={handleAddToCart} />
+      <ProductList 
+        category={category}
+        addToCart={handleAddToCart}
+      />
 
       <Cart cart={cart}/>
     </div>
