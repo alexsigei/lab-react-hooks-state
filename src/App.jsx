@@ -7,9 +7,13 @@ const App = () => {
   // TODO: Implement state for dark mode toggle
   const [darkmode, setDarkmode] = useState(false)
 
-  // TODO: Implement state for cart management
+  const [cart, setCart] = useState([])
 
   // TODO: Implement state for category filtering
+
+  function handleAddToCart(product) {
+    setCart((prevCart) => [...prevCart, product])
+  }
 
   return (
     <div>
@@ -32,9 +36,9 @@ const App = () => {
         <option value="Dairy">Dairy</option>
       </select>
 
-      <ProductList />
+      <ProductList addToCart={handleAddToCart} />
 
-      {/* TODO: Implement and render Cart component */}
+      <Cart cart={cart}/>
     </div>
   )
 }
